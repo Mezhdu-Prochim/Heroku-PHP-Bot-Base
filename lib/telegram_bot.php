@@ -113,7 +113,7 @@ class TelegramBot{
 		try {
 		$text = mb_strtolower($text);
 		} catch (Exception $e) {
-			@file_put_contents( "log.txt", $e->getMessage() . "\n", FILE_APPEND );
+			//@file_put_contents( "log.txt", $e->getMessage() . "\n", FILE_APPEND );
 		}
 		@file_put_contents( "log.txt", "$text" . "\n", FILE_APPEND );
 		$param = null;
