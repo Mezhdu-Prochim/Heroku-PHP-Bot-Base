@@ -13,5 +13,8 @@ require_once "config.php";
 
 $bot = new ShepherdKozyBot($token,$bot_name,$squadIds,$admins,$playersIds,$url,$gm_id,$ali_admins);
 $bot->replyCommand();
+$bot->api->sendMessage([
+            'text' => "Ты автстралийская водяная крыса! Вот ты кто",
+        ]);
 
 ?>
