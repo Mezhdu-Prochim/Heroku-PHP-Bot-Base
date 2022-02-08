@@ -22,8 +22,8 @@
 	];
 /*	$playersIds = [
 		'Палыча' => 1180155700,
-		'Войса' => 316156004,*/
-	];
+		'Войса' => 316156004,
+	];*/
 	$ali_admins = [
 		$gm_id, 
 		316156004 //Morok
@@ -31,8 +31,8 @@
 	/*$resources_admins = [
 		$gm_id, 
 		1180155700, //Palych
-		318688492 //lady_eboshi*/
-	];
+		318688492 //lady_eboshi
+	];*/
 	$quest_admins = [
 		$gm_id, 
 		793512208, //Antirinka
