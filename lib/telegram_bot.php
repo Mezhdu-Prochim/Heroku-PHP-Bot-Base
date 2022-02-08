@@ -127,6 +127,7 @@ class TelegramBot{
 	 *
 	 */
 	public function callCommand(){
+		try {
 		@file_put_contents( "log.txt", "callCommand", FILE_APPEND );
 		$text = $this->result["message"]["text"];
 		$cmd = $this->getCommand( $text );
@@ -139,6 +140,9 @@ class TelegramBot{
 		else{
 			@file_put_contents( "log.txt", "cmd_default", FILE_APPEND );
 			//$this->cmd_default();
+		}
+		} catch (Exception $e) {
+			@file_put_contents( "log.txt", "/n" . $e->getMessage(), FILE_APPEND );
 		}
 	}
 
