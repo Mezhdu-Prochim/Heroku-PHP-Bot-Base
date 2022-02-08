@@ -109,8 +109,11 @@ class TelegramBot{
 				return $this->hardCommands[$cmd];
 			}
 		}
+		@file_put_contents( "log.txt", "end foreach" . "\n", FILE_APPEND );
 		$text = mb_strtolower($text);
+		@file_put_contents( "log.txt", "$text" . "\n", FILE_APPEND );
 		$param = null;
+		@file_put_contents( "log.txt", "$param" . "\n", FILE_APPEND );
 		$tmp = explode(" ", $text);
 		@file_put_contents( "log.txt", "$tmp" . "\n", FILE_APPEND );
 		if (count($tmp) > 1) {
