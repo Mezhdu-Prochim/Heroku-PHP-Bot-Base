@@ -102,7 +102,7 @@ class TelegramBot{
 			$text = str_replace( $this->bot_name, "", $text );
 		}
 		foreach (array_keys($this->hardCommands) as $cmd) {
-			@file_put_contents( "log.txt", "foreach" . "\n", FILE_APPEND );
+			@file_put_contents( "log.txt", "foreach " . $cmd . "\n", FILE_APPEND );
 			if (strpos($text,$cmd) !== false) {
 				@file_put_contents( "log.txt", "hardCommands" . "\n", FILE_APPEND );
 				$this->param = $text;
