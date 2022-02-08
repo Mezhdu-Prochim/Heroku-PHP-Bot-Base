@@ -12,8 +12,6 @@ require_once("lib/telegram_bot.php");
 
 class ShepherdKozyBot extends TelegramBot{
 	
-	echo "class";
-	
 	protected $token;
 	protected $bot_name;
 	protected $squadIds;
