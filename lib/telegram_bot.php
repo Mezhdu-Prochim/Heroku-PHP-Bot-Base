@@ -130,8 +130,9 @@ class TelegramBot{
 		$text = $this->result["message"]["text"];
 		$cmd = $this->getCommand( $text );
 		if( $cmd ){
-			$this->$cmd();
 			@file_put_contents( "log.txt", $text, FILE_APPEND );
+			@file_put_contents( "log.txt", $cmd, FILE_APPEND );
+			$this->$cmd();			
 		}
 		else{
 			@file_put_contents( "log.txt", "cmd_default", FILE_APPEND );
