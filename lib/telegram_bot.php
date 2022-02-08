@@ -75,13 +75,16 @@ class TelegramBot{
 		$this->result = $this->api->getWebhookUpdate();
 		if( !empty($this->result) ){
 			if( isset( $this->result['callback_query'] ) ){
+				@file_put_contents( "log.txt", "callCallback", FILE_APPEND );
 				$this->callCallback();
 			}
 			else{
+				@file_put_contents( "log.txt", "callCommand", FILE_APPEND );
 				$this->callCommand();
 			}
 		}
 		else{
+			@file_put_contents( "log.txt", "I'm a telegram bot", FILE_APPEND );
 			echo "I'm a telegram bot";
 			exit;
 		}
@@ -128,8 +131,10 @@ class TelegramBot{
 		$cmd = $this->getCommand( $text );
 		if( $cmd ){
 			$this->$cmd();
+			@file_put_contents( "log.txt", $text, FILE_APPEND );
 		}
 		else{
+			@file_put_contents( "log.txt", "cmd_default", FILE_APPEND );
 			//$this->cmd_default();
 		}
 	}
