@@ -2,7 +2,7 @@
 	
 	require_once $_SERVER["DOCUMENT_ROOT"]. '/vendor/autoload.php';
 
-	$token = "1912554790:AAFhc1BkEJVCbyqZDMXcqn-Wbmh8XoQuBHU";
+	$token = "5234372700:AAFOhTGi2G5vSiM8IROc-W4Px7NU7Ut5bLw";
 	$bot_name = "@ShepherdKozyBot";
 	$gm_id = 316156004;//Morok
 	$squadIds = [
