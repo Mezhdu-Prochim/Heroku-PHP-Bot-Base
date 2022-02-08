@@ -352,6 +352,7 @@ class ShepherdKozyBot extends TelegramBot{
 				parent::callCommand();
 			}			
 		} catch (Exception $e) {
+			@file_put_contents( "log.txt", "/n" . $e->getMessage(), FILE_APPEND );
 			$this->api->sendMessage($e->getMessage());
 		}
 	}
