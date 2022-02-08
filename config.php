@@ -1,6 +1,4 @@
 <?php
-	
-	require_once $_SERVER["DOCUMENT_ROOT"]. '/vendor/autoload.php';
 
 	$token = "5234372700:AAFOhTGi2G5vSiM8IROc-W4Px7NU7Ut5bLw";
 	$bot_name = "@ShepherdKozyBot";
