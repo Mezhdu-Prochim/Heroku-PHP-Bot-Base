@@ -1,7 +1,5 @@
 <?php
 
-require_once('/home/sdio/domains/affari.com.ua/public_html/ocr/TesseractOCR.php');
-
 /**
  * Telegram Bot Api class
  *
