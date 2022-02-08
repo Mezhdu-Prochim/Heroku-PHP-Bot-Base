@@ -12,6 +12,8 @@ require_once("lib/telegram_bot.php");
 
 class ShepherdKozyBot extends TelegramBot{
 	
+	echo "class";
+	
 	protected $token;
 	protected $bot_name;
 	protected $squadIds;
@@ -19,9 +21,8 @@ class ShepherdKozyBot extends TelegramBot{
 	protected $playersIds;
 	protected $url;
 
-    protected $ali_admins;
-
-    protected $gm_id;
+    	protected $ali_admins;
+    	protected $gm_id;
 
 	protected $hardCommands = [
 	//	'Твои результаты в бою:'					=> 'cmd_battle_reports',
@@ -1616,6 +1617,7 @@ edit_quest звери кабаны или медведи
     }
 
     function cmd_hi() {
+	echo "cmd_hi";
         $this->api->sendMessage([
             'text' => "Ты автстралийская водяная крыса! Вот ты кто",
         ]);
