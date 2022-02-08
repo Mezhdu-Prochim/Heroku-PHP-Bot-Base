@@ -110,25 +110,21 @@ class TelegramBot{
 			}
 		}
 		@file_put_contents( "log.txt", "end foreach" . "\n", FILE_APPEND );
-		try {
 		$text = mb_strtolower($text);
-		} catch (Exception $e) {
-			//@file_put_contents( "log.txt", $e->getMessage() . "\n", FILE_APPEND );
-		}
-		@file_put_contents( "log.txt", "$text" . "\n", FILE_APPEND );
+		@file_put_contents( "log.txt", "text" . "\n", FILE_APPEND );
 		$param = null;
-		@file_put_contents( "log.txt", "$param" . "\n", FILE_APPEND );
+		@file_put_contents( "log.txt", "param" . "\n", FILE_APPEND );
 		$tmp = explode(" ", $text);
-		@file_put_contents( "log.txt", "$tmp" . "\n", FILE_APPEND );
+		@file_put_contents( "log.txt", "tmp" . "\n", FILE_APPEND );
 		if (count($tmp) > 1) {
-			@file_put_contents( "log.txt", "count($tmp) > 1" . "\n", FILE_APPEND );
+			@file_put_contents( "log.txt", "count(tmp) > 1" . "\n", FILE_APPEND );
 			$param = $tmp[1];
 			$text = $tmp[0];
 		}
 		if( $text && array_key_exists( $text, $this->commands ) && method_exists( $this, $this->commands[$text] ) ){
 			@file_put_contents( "log.txt", "if" . "\n", FILE_APPEND );
 			if (!$param) {
-				@file_put_contents( "log.txt", "!$param" . "\n", FILE_APPEND );
+				@file_put_contents( "log.txt", "!param" . "\n", FILE_APPEND );
 				return $this->commands[$text];
 			}
 			$this->param = $param;
