@@ -38,4 +38,4 @@
 		793512208, //Antirinka
 		231806103 //Бени
 	];
-	$url = 'https://dashboard.heroku.com/apps/kozy-bot/';
+	$url = 'https://kozy-bot.herokuapp.com/';
