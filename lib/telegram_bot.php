@@ -102,7 +102,7 @@ class TelegramBot{
 				return $this->hardCommands[$cmd];
 			}
 		}
-		$text = mb_strtolower($text);
+		$text = strtolower($text);
 		$param = null;
 		$tmp = explode(" ", $text);
 		if (count($tmp) > 1) {
