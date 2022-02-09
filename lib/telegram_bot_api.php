@@ -71,8 +71,6 @@ class TelegramBotApi{
 
 		if( $this->debug ){
 			@file_put_contents( "log.txt", print_r( $body, 1 ) . "\n", FILE_APPEND );
-			@file_put_contents( "log.txt", "chatId = " . $this->chatId, FILE_APPEND );
-			@file_put_contents( "log.txt", "message = " . $this->message, FILE_APPEND );
 		}
 
 		return $body;

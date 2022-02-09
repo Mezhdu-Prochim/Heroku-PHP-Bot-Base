@@ -1592,7 +1592,6 @@ edit_quest звери кабаны или медведи
 
     function cmd_start()
 {
-	    @file_put_contents("log.txt", "cmd_start", FILE_APPEND);
 		$Db = new Db;
 		$sql = 'SELECT id FROM bot_users WHERE user_id = '.$this->result['message']['from']['id'];
 		$result = $Db::getRow($sql);
@@ -1617,8 +1616,6 @@ edit_quest звери кабаны или медведи
     }
 
     function cmd_hi() {
-	@file_put_contents("log.txt", "cmd_hi", FILE_APPEND);
-	echo "cmd_hi";
         $this->api->sendMessage([
             'text' => "Ты автстралийская водяная крыса! Вот ты кто",
         ]);

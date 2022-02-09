@@ -75,16 +75,13 @@ class TelegramBot{
 		$this->result = $this->api->getWebhookUpdate();
 		if( !empty($this->result) ){
 			if( isset( $this->result['callback_query'] ) ){
-				@file_put_contents( "log.txt", "callCallback" . "\n", FILE_APPEND );
 				$this->callCallback();
 			}
 			else{
-				@file_put_contents( "log.txt", "callCommand" . "\n", FILE_APPEND );
 				$this->callCommand();
 			}
 		}
 		else{
-			@file_put_contents( "log.txt", "I'm a telegram bot" . "\n", FILE_APPEND );
 			echo "I'm a telegram bot";
 			exit;
 		}
@@ -96,42 +93,29 @@ class TelegramBot{
 	 * @param string $text
 	 */
 	public function getCommand( $text ){
-		@file_put_contents( "log.txt", "getCommand" . "\n", FILE_APPEND );
 		if( isset( $this->bot_name ) && strpos( $text, $this->bot_name ) ){
-			@file_put_contents( "log.txt", "str_replace" . "\n", FILE_APPEND );
 			$text = str_replace( $this->bot_name, "", $text );
 		}
 		foreach (array_keys($this->hardCommands) as $cmd) {
-			@file_put_contents( "log.txt", "foreach " . $cmd . "\n", FILE_APPEND );
 			if (strpos($text,$cmd) !== false) {
-				@file_put_contents( "log.txt", "hardCommands" . "\n", FILE_APPEND );
 				$this->param = $text;
 				return $this->hardCommands[$cmd];
 			}
 		}
-		@file_put_contents( "log.txt", "end foreach" . "\n", FILE_APPEND );
-		//$text = mb_strtolower($text);
-		@file_put_contents( "log.txt", "text" . "\n", FILE_APPEND );
+		$text = mb_strtolower($text);
 		$param = null;
-		@file_put_contents( "log.txt", "param" . "\n", FILE_APPEND );
 		$tmp = explode(" ", $text);
-		@file_put_contents( "log.txt", "tmp" . "\n", FILE_APPEND );
 		if (count($tmp) > 1) {
-			@file_put_contents( "log.txt", "count(tmp) > 1" . "\n", FILE_APPEND );
 			$param = $tmp[1];
 			$text = $tmp[0];
 		}
 		if( $text && array_key_exists( $text, $this->commands ) && method_exists( $this, $this->commands[$text] ) ){
-			@file_put_contents( "log.txt", "if" . "\n", FILE_APPEND );
 			if (!$param) {
-				@file_put_contents( "log.txt", "!param" . "\n", FILE_APPEND );
 				return $this->commands[$text];
 			}
 			$this->param = $param;
-			@file_put_contents( "log.txt", "commands" . "\n", FILE_APPEND );
 			return $this->commands[$text];
 		}
-		@file_put_contents( "log.txt", "false" . "\n", FILE_APPEND );
 		return false;
 	}
 
@@ -140,23 +124,13 @@ class TelegramBot{
 	 *
 	 */
 	public function callCommand(){
-		try {
-		@file_put_contents( "log.txt", "callCommand" . "\n", FILE_APPEND );
 		$text = $this->result["message"]["text"];
-		@file_put_contents( "log.txt", "text = " . $text . "\n", FILE_APPEND );
 		$cmd = $this->getCommand( $text );
 		if( $cmd ){
-			@file_put_contents( "log.txt", "cmd" . "\n", FILE_APPEND );
-			@file_put_contents( "log.txt", $text . "\n", FILE_APPEND );
-			@file_put_contents( "log.txt", $cmd . "\n", FILE_APPEND );
 			$this->$cmd();			
 		}
 		else{
-			@file_put_contents( "log.txt", "cmd_default" . "\n", FILE_APPEND );
 			//$this->cmd_default();
-		}
-		} catch (Exception $e) {
-			@file_put_contents( "log.txt", $e->getMessage() . "\n", FILE_APPEND );
 		}
 	}
 
