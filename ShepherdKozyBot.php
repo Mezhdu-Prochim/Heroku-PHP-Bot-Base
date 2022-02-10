@@ -50,7 +50,7 @@ class ShepherdKozyBot extends TelegramBot{
 		//'+'				=> 'cmd_ali_ok',
 	//	'атака'			=> 'cmd_get_attack_list',
 	//	'защита'		=> 'cmd_get_def_list',
-		'альянс'		=> 'cmd_ali',
+	//	'альянс'		=> 'cmd_ali',
 		'лс'			=> 'cmd_lss',
 		'команды'		=> 'cmd_commands',
 	//	'сено'			=> 'cmd_gethay',
@@ -87,6 +87,7 @@ class ShepherdKozyBot extends TelegramBot{
 	//	'лишние'		=> 'cmd_gold_trigger',
 		'список_ресов'	=> 'cmd_list_player_resources',
 		'мурка'			=> 'cmd_list_murky',
+		'клава_прочь'	=> 'cmd_remove_keyboard',
 		'/start'		=> 'cmd_start',
 		'/quests' 		=> 'cmd_quest_trigger',
 		'/quest' 		=> 'cmd_quest_trigger',
@@ -1620,6 +1621,15 @@ edit_quest звери кабаны или медведи
             'text' => "Ты автстралийская водяная крыса! Вот ты кто",
         ]);
     }
+
+	function cmd_remove_keyboard() {
+		$this->api->sendMessage([
+			'text' => 'Я убрал клавиатуру',
+			'parse_mode' => 'HTML',
+			'reply_markup' => json_encode(['remove_keyboard' => true])	
+		]);
+	}
+
 }
 
 ?>
