@@ -50,7 +50,7 @@ class ShepherdKozyBot extends TelegramBot{
 		//'+'				=> 'cmd_ali_ok',
 	//	'атака'			=> 'cmd_get_attack_list',
 	//	'защита'		=> 'cmd_get_def_list',
-	//	'альянс'		=> 'cmd_ali',
+		'альянс'		=> 'cmd_ali',
 		'лс'			=> 'cmd_lss',
 		'команды'		=> 'cmd_commands',
 	//	'сено'			=> 'cmd_gethay',
